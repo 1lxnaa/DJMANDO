@@ -241,7 +241,7 @@
       margin: 0 auto;
     }
     .sobre-img {
-      aspect-ratio: 3/4;
+      aspect-ratio: 1/1;
       background: var(--card);
       border: 1px solid var(--border);
       display: flex;
@@ -324,8 +324,8 @@
       cursor: pointer;
     }
     .galeria-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    .galeria-item::after {
-      content: 'Ver foto';
+    /*.galeria-item::after {
+      content: '';
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.6);
@@ -482,7 +482,7 @@
   <section id="sobre">
     <div class="sobre-grid">
       <div class="sobre-img">
-        <span class="sobre-img-placeholder">🎧</span>
+        <img src="img/djmandobackground.jpeg" alt="Evento" style="width: 100%;height: 100%; object-fit: cover; object-position: center top;"/>
       </div>
       <div class="sobre-text">
         <p class="section-label">Sobre mí</p>
@@ -515,32 +515,32 @@
     </div>
     <div class="servicios-grid">
       <div class="servicio-card">
-        <div class="servicio-icon">💍</div>
+        <div class="servicio-icon"></div>
         <h3>BODAS</h3>
         <p>Hacemos de tu boda un evento inolvidable. Desde la ceremonia hasta la última canción de la noche.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon">🎉</div>
+        <div class="servicio-icon"></div>
         <h3>QUINCEAÑERAS</h3>
         <p>El día más especial merece la mejor música. Sets personalizados para que bailes toda la noche.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon">🎊</div>
+        <div class="servicio-icon"></div>
         <h3>FIESTAS PRIVADAS</h3>
         <p>Cumpleaños, graduaciones, reuniones familiares — ponemos el ambiente que tú quieres.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon">🏢</div>
+        <div class="servicio-icon"></div>
         <h3>EVENTOS CORPORATIVOS</h3>
         <p>Profesionalismo y buen gusto musical para eventos de empresa y celebraciones de trabajo.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon">🎶</div>
+        <div class="servicio-icon"></div>
         <h3>KARAOKE</h3>
         <p>¿Quieres que todos canten? Servicio de karaoke incluido con equipo completo de sonido.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon">🔊</div>
+        <div class="servicio-icon"></div>
         <h3>RENTA DE EQUIPO</h3>
         <p>Bocinas, luces, micrófonos y más. Equipo profesional para que tu evento suene perfecto.</p>
       </div>
@@ -554,11 +554,25 @@
       <h2>GALERÍA</h2>
     </div>
     <div class="galeria-grid">
-      <div class="galeria-item"><span class="galeria-placeholder">📸</span></div>
-      <div class="galeria-item"><span class="galeria-placeholder">📸</span></div>
-      <div class="galeria-item"><span class="galeria-placeholder">📸</span></div>
-      <div class="galeria-item"><span class="galeria-placeholder">📸</span></div>
-      <div class="galeria-item"><span class="galeria-placeholder">📸</span></div>
+      <div class="galeria-item">
+        <video src="img/fillervideo.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        </video>
+      </div>
+      <div class="galeria-item">
+        <img src="img/filler1.jpeg" alt="Evento" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+      </div>
+      <div class="galeria-item">
+        <video src="img/dancingrobot.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+      </video>
+      </div>
+      <div class="galeria-item">
+        <video src="img/bandadj.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+      </video>
+      </div>
+      <div class="galeria-item">
+       <video src="img/quincedj.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+      </video>
+      </div>
     </div>
   </section>
 
