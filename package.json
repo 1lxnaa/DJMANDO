@@ -1,0 +1,23 @@
+{
+  "name": "djmando",
+  "version": "1.0.0",
+  "description": "DJ Mando - Professional DJ Services Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1lxnaa/DJMANDO.git"
+  },
+  "keywords": ["dj", "music", "events"],
+  "author": "DJ Mando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1lxnaa/DJMANDO/issues"
+  },
+  "homepage": "https://github.com/1lxnaa/DJMANDO#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
