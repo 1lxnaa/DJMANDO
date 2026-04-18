@@ -60,7 +60,7 @@
       color: var(--gold);
       text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
@@ -76,6 +76,19 @@
       padding: 0.45rem 1.3rem;
       font-weight: 500 !important;
     }
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { background: var(--gold); color: var(--black); }
 
     /* HERO */
     #inicio {
@@ -230,7 +243,7 @@
       margin-bottom: 1.5rem;
     }
 
-    /* SOBRE MÍ */
+    /* SOBRE MI */
     #sobre { background: var(--deep); }
     .sobre-grid {
       display: grid;
@@ -256,7 +269,6 @@
       inset: 0;
       background: linear-gradient(135deg, var(--gold-dim) 0%, transparent 60%);
     }
-    .sobre-img-placeholder { font-size: 6rem; color: var(--border); }
     .sobre-text p { color: #aaa; line-height: 1.8; font-size: 1rem; margin-bottom: 1.2rem; }
     .sobre-stats {
       display: flex;
@@ -298,11 +310,10 @@
     }
     .servicio-card:hover { background: var(--card); }
     .servicio-card:hover::before { transform: scaleX(1); }
-    .servicio-icon { font-size: 2rem; margin-bottom: 1.2rem; }
     .servicio-card h3 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
     .servicio-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
 
-    /* GALERÍA */
+    /* GALERIA */
     #galeria { background: var(--deep); }
     .galeria-header { max-width: 1100px; margin: 0 auto 3rem; }
     .galeria-grid {
@@ -324,40 +335,6 @@
       cursor: pointer;
     }
     .galeria-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    /*.galeria-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-    .galeria-item:hover::after { opacity: 1; }
-    .galeria-placeholder { color: var(--border); font-size: 2.5rem; }
-
-    /* MÚSICA */
-    #musica { background: var(--black); }
-    .musica-inner { max-width: 1100px; margin: 0 auto; }
-    .musica-embed-placeholder {
-      background: var(--card);
-      border: 1px solid var(--border);
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      gap: 0.8rem;
-    }
 
     /* CONTACTO */
     #contacto { background: var(--deep); }
@@ -452,12 +429,12 @@
   <nav>
     <a href="#inicio" class="nav-logo">DJ MANDO</a>
     <ul class="nav-links">
-      <li><a href="#sobre">Sobre mí</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <!-- <li><a href="#musica">Redes Sociales</a></li> -->
-      <li><a href="#contacto" class="nav-cta">Reservar</a></li>
+      <li><a href="#sobre" data-es="Sobre mí" data-en="About Me">Sobre mí</a></li>
+      <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+      <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
+      <li><a href="#contacto" class="nav-cta" data-es="Reservar" data-en="Book Now">Reservar</a></li>
     </ul>
+    <button onclick="toggleLang()" id="langBtn" class="lang-btn">EN</button>
   </nav>
 
   <!-- HERO -->
@@ -467,38 +444,39 @@
     <div class="hero-line"></div>
     <div class="hero-line"></div>
     <div class="hero-content">
-      <p class="hero-tag">DJ &amp; Animador de Eventos</p>
+      <p class="hero-tag" data-es="DJ & Animador de Eventos" data-en="DJ & Event Entertainer">DJ &amp; Animador de Eventos</p>
       <h1>DJ<span>MANDO</span></h1>
-      <p class="hero-quote">"La vida sin música no es vida."</p>
+      <p class="hero-quote" data-es='"La vida sin música no es vida."' data-en='"Life without music is no life."'>"La vida sin música no es vida."</p>
       <div class="hero-actions">
-        <a href="#contacto" class="btn-primary">Reservar Ahora</a>
-        <a href="#galeria" class="btn-ghost">Ver Eventos</a>
+        <a href="#contacto" class="btn-primary" data-es="Reservar Ahora" data-en="Book Now">Reservar Ahora</a>
+        <a href="#galeria" class="btn-ghost" data-es="Ver Eventos" data-en="See Events">Ver Eventos</a>
       </div>
+    </div>
   </section>
 
-  <!-- SOBRE MÍ -->
+  <!-- SOBRE MI -->
   <section id="sobre">
     <div class="sobre-grid">
       <div class="sobre-img">
-        <img src="img/djmandobackground.jpeg" alt="Evento" style="width: 100%;height: 100%; object-fit: cover; object-position: center top;"/>
+        <img src="img/djmandobackground.jpeg" alt="Evento" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
       </div>
       <div class="sobre-text">
-        <p class="section-label">Sobre mí</p>
-        <h2>PASIÓN POR LA MÚSICA</h2>
-        <p>Con años de experiencia animando eventos, bodas, quinceañeras y fiestas privadas, DJ Mando trae energía, profesionalismo y un estilo único a cada evento.</p>
-        <p>Especializado en música latina, reggaetón, cumbia, bachata, y más — adaptando cada set al ambiente y al gusto de los invitados.</p>
+        <p class="section-label" data-es="Sobre mí" data-en="About Me">Sobre mí</p>
+        <h2 data-es="PASIÓN POR LA MÚSICA" data-en="PASSION FOR MUSIC">PASIÓN POR LA MÚSICA</h2>
+        <p data-es="Con años de experiencia animando eventos, bodas, quinceañeras y fiestas privadas, DJ Mando trae energía, profesionalismo y un estilo único a cada evento." data-en="With years of experience entertaining events, weddings, quinceañeras and private parties, DJ Mando brings energy, professionalism and a unique style to every event.">Con años de experiencia animando eventos, bodas, quinceañeras y fiestas privadas, DJ Mando trae energía, profesionalismo y un estilo único a cada evento.</p>
+        <p data-es="Especializado en música latina, reggaetón, cumbia, bachata, y más — adaptando cada set al ambiente y al gusto de los invitados." data-en="Specialized in Latin music, reggaeton, cumbia, bachata, and more — adapting each set to the vibe and taste of the guests.">Especializado en música latina, reggaetón, cumbia, bachata, y más — adaptando cada set al ambiente y al gusto de los invitados.</p>
         <div class="sobre-stats">
           <div>
             <div class="stat-num">100+</div>
-            <div class="stat-label">Eventos</div>
+            <div class="stat-label" data-es="Eventos" data-en="Events">Eventos</div>
           </div>
           <div>
             <div class="stat-num">5+</div>
-            <div class="stat-label">Años de exp.</div>
+            <div class="stat-label" data-es="Años de exp." data-en="Yrs of exp.">Años de exp.</div>
           </div>
           <div>
             <div class="stat-num">5★</div>
-            <div class="stat-label">Calificación</div>
+            <div class="stat-label" data-es="Calificación" data-en="Rating">Calificación</div>
           </div>
         </div>
       </div>
@@ -508,143 +486,149 @@
   <!-- SERVICIOS -->
   <section id="servicios">
     <div class="servicios-header">
-      <p class="section-label">Lo que ofrezco</p>
-      <h2>SERVICIOS</h2>
+      <p class="section-label" data-es="Lo que ofrezco" data-en="What I Offer">Lo que ofrezco</p>
+      <h2 data-es="SERVICIOS" data-en="SERVICES">SERVICIOS</h2>
     </div>
     <div class="servicios-grid">
       <div class="servicio-card">
-        <div class="servicio-icon"></div>
-        <h3>BODAS</h3>
-        <p>Hacemos de tu boda un evento inolvidable. Desde la ceremonia hasta la última canción de la noche.</p>
+        <h3 data-es="BODAS" data-en="WEDDINGS">BODAS</h3>
+        <p data-es="Hacemos de tu boda un evento inolvidable. Desde la ceremonia hasta la última canción de la noche." data-en="We make your wedding unforgettable. From the ceremony to the last song of the night.">Hacemos de tu boda un evento inolvidable. Desde la ceremonia hasta la última canción de la noche.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"></div>
-        <h3>QUINCEAÑERAS</h3>
-        <p>El día más especial merece la mejor música. Sets personalizados para que bailes toda la noche.</p>
+        <h3 data-es="QUINCEAÑERAS" data-en="QUINCEAÑERAS">QUINCEAÑERAS</h3>
+        <p data-es="El día más especial merece la mejor música. Sets personalizados para que bailes toda la noche." data-en="The most special day deserves the best music. Custom sets so you dance all night.">El día más especial merece la mejor música. Sets personalizados para que bailes toda la noche.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"></div>
-        <h3>FIESTAS PRIVADAS</h3>
-        <p>Cumpleaños, graduaciones, reuniones familiares — ponemos el ambiente que tú quieres.</p>
+        <h3 data-es="FIESTAS PRIVADAS" data-en="PRIVATE PARTIES">FIESTAS PRIVADAS</h3>
+        <p data-es="Cumpleaños, graduaciones, reuniones familiares — ponemos el ambiente que tú quieres." data-en="Birthdays, graduations, family gatherings — we set the vibe you want.">Cumpleaños, graduaciones, reuniones familiares — ponemos el ambiente que tú quieres.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"></div>
-        <h3>EVENTOS CORPORATIVOS</h3>
-        <p>Profesionalismo y buen gusto musical para eventos de empresa y celebraciones de trabajo.</p>
+        <h3 data-es="EVENTOS CORPORATIVOS" data-en="CORPORATE EVENTS">EVENTOS CORPORATIVOS</h3>
+        <p data-es="Profesionalismo y buen gusto musical para eventos de empresa y celebraciones de trabajo." data-en="Professionalism and great musical taste for company events and work celebrations.">Profesionalismo y buen gusto musical para eventos de empresa y celebraciones de trabajo.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"></div>
-        <h3>KARAOKE</h3>
-        <p>¿Quieres que todos canten? Servicio de karaoke incluido con equipo completo de sonido.</p>
+        <h3 data-es="KARAOKE" data-en="KARAOKE">KARAOKE</h3>
+        <p data-es="¿Quieres que todos canten? Servicio de karaoke incluido con equipo completo de sonido." data-en="Want everyone singing? Karaoke service included with full sound equipment.">¿Quieres que todos canten? Servicio de karaoke incluido con equipo completo de sonido.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"></div>
-        <h3>RENTA DE EQUIPO</h3>
-        <p>Bocinas, luces, micrófonos y más. Equipo profesional para que tu evento suene perfecto.</p>
+        <h3 data-es="RENTA DE EQUIPO" data-en="EQUIPMENT RENTAL">RENTA DE EQUIPO</h3>
+        <p data-es="Bocinas, luces, micrófonos y más. Equipo profesional para que tu evento suene perfecto." data-en="Speakers, lights, microphones and more. Professional equipment so your event sounds perfect.">Bocinas, luces, micrófonos y más. Equipo profesional para que tu evento suene perfecto.</p>
       </div>
     </div>
   </section>
 
-  <!-- GALERÍA -->
+  <!-- GALERIA -->
   <section id="galeria">
     <div class="galeria-header">
-      <p class="section-label">Momentos</p>
-      <h2>GALERÍA</h2>
+      <p class="section-label" data-es="Momentos" data-en="Moments">Momentos</p>
+      <h2 data-es="GALERÍA" data-en="GALLERY">GALERÍA</h2>
     </div>
     <div class="galeria-grid">
       <div class="galeria-item">
-        <video src="img/fillervideo.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;">
-        </video>
+        <video src="img/fillervideo.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"></video>
       </div>
       <div class="galeria-item">
         <img src="img/filler1.jpeg" alt="Evento" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
       </div>
       <div class="galeria-item">
-        <video src="img/dancingrobot.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
-      </video>
+        <video src="img/dancingrobot.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"></video>
       </div>
       <div class="galeria-item">
-        <video src="img/bandadj.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
-      </video>
+        <video src="img/bandadj.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"></video>
       </div>
       <div class="galeria-item">
-       <video src="img/quincedj.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
-      </video>
+        <video src="img/quincedj.mp4" controls style="width:100%;height:100%;object-fit:cover;object-position:center;"></video>
       </div>
     </div>
   </section>
-
-  <!-- MÚSICA 
-  <section id="musica">
-    <div class="musica-inner">
-      <p class="section-label">Buscame</p>
-      <h2>Redes Sociales</h2>
-      <p style="color:var(--muted);margin-bottom:2rem;font-size:0.95rem;">Buscame en Youtube y Facebook</p>
-      <div class="musica-embed-placeholder"> &nbsp; Embed de Facebook aquí</div>
-      <div class="musica-embed-placeholder"> &nbsp; Embed de Youtube aquí</div>
-    </div>
-  </section>
-  -->
 
   <!-- CONTACTO -->
   <section id="contacto">
     <div class="contacto-inner">
-      <p class="section-label" style="justify-content:center;">Hablemos</p>
-      <h2>RESERVA TU FECHA</h2>
-      <p class="contacto-sub">¿Listo para que tu evento sea épico? Mándame un mensaje y te respondo pronto.</p>
+      <p class="section-label" style="justify-content:center;" data-es="Hablemos" data-en="Let's Talk">Hablemos</p>
+      <h2 data-es="RESERVA TU FECHA" data-en="BOOK YOUR DATE">RESERVA TU FECHA</h2>
+      <p class="contacto-sub" data-es="¿Listo para que tu evento sea épico? Mándame un mensaje y te respondo pronto." data-en="Ready to make your event epic? Send me a message and I'll get back to you soon.">¿Listo para que tu evento sea épico? Mándame un mensaje y te respondo pronto.</p>
       <form>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label data-es="Nombre" data-en="Name">Nombre</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" data-ph-es="Tu nombre" data-ph-en="Your name" required />
+          </div>
+          <div class="form-group">
+            <label data-es="Teléfono" data-en="Phone">Teléfono</label>
+            <input type="tel" name="telefono" placeholder="(000) 000-0000" />
+          </div>
         </div>
         <div class="form-group">
-          <label>Teléfono</label>
-          <input type="tel" name="telefono" placeholder="(000) 000-0000" />
+          <label data-es="Correo electrónico" data-en="Email">Correo electrónico</label>
+          <input type="email" name="email" placeholder="tucorreo@ejemplo.com" data-ph-es="tucorreo@ejemplo.com" data-ph-en="youremail@example.com" required />
         </div>
-      </div>
-      <div class="form-group">
-        <label>Correo electrónico</label>
-        <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required />
-      </div>
-      <div class="form-row">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-es="Tipo de evento" data-en="Event Type">Tipo de evento</label>
+            <select name="tipo_evento">
+              <option value="" data-es="Selecciona..." data-en="Select...">Selecciona...</option>
+              <option data-es="Boda" data-en="Wedding">Boda</option>
+              <option data-es="Quinceañera" data-en="Quinceañera">Quinceañera</option>
+              <option data-es="Fiesta privada" data-en="Private Party">Fiesta privada</option>
+              <option data-es="Evento corporativo" data-en="Corporate Event">Evento corporativo</option>
+              <option data-es="Karaoke" data-en="Karaoke">Karaoke</option>
+              <option data-es="Otro" data-en="Other">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-es="Fecha del evento" data-en="Event Date">Fecha del evento</label>
+            <input type="date" name="fecha" />
+          </div>
+        </div>
         <div class="form-group">
-          <label>Tipo de evento</label>
-          <select name="tipo_evento">
-            <option value="">Selecciona...</option>
-            <option>Boda</option>
-            <option>Quinceañera</option>
-            <option>Fiesta privada</option>
-            <option>Evento corporativo</option>
-            <option>Karaoke</option>
-            <option>Otro</option>
-          </select>
+          <label data-es="Mensaje" data-en="Message">Mensaje</label>
+          <textarea name="mensaje" placeholder="Cuéntame más sobre tu evento..." data-ph-es="Cuéntame más sobre tu evento..." data-ph-en="Tell me more about your event..."></textarea>
         </div>
-        <div class="form-group">
-          <label>Fecha del evento</label>
-          <input type="date" name="fecha" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Mensaje</label>
-        <textarea name="mensaje" placeholder="Cuéntame más sobre tu evento..."></textarea>
-      </div>
-      <button class="form-submit" type="submit">Enviar Solicitud</button>
-      <p id="form-success" style="display:none;color:var(--gold);margin-top:1rem;font-size:0.9rem;letter-spacing:0.05em;">✓ Mensaje enviado. Te contactaremos pronto.</p>
-      <p id="form-error" style="display:none;color:#e06060;margin-top:1rem;font-size:0.9rem;">Algo salió mal. Intenta de nuevo.</p>
+        <button class="form-submit" type="submit" id="submitBtn" data-es="Enviar Solicitud" data-en="Send Request">Enviar Solicitud</button>
+        <p id="form-success" style="display:none;color:var(--gold);margin-top:1rem;font-size:0.9rem;letter-spacing:0.05em;" data-es="✓ Mensaje enviado. Te contactaremos pronto." data-en="✓ Message sent. We'll be in touch soon.">✓ Mensaje enviado. Te contactaremos pronto.</p>
+        <p id="form-error" style="display:none;color:#e06060;margin-top:1rem;font-size:0.9rem;" data-es="Algo salió mal. Intenta de nuevo." data-en="Something went wrong. Please try again.">Algo salió mal. Intenta de nuevo.</p>
       </form>
     </div>
   </section>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">DJ MANDO</div>
+    <div class="footer-quote" data-es='"La vida sin música no es vida."' data-en='"Life without music is no life."'>"La vida sin música no es vida."</div>
+    <div class="footer-copy" data-es="© 2026 DJ Mando. Todos los derechos reservados." data-en="© 2026 DJ Mando. All rights reserved.">© 2026 DJ Mando. Todos los derechos reservados.</div>
+  </footer>
+
   <script>
+    // LANG TOGGLE
+    let lang = 'es';
+    function toggleLang() {
+      lang = lang === 'es' ? 'en' : 'es';
+      document.getElementById('langBtn').textContent = lang === 'es' ? 'EN' : 'ES';
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-es],[data-en]').forEach(el => {
+        if (el.querySelector('[data-es],[data-en]')) return;
+        const val = el.getAttribute('data-' + lang);
+        if (!val) return;
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+        else if (el.tagName === 'OPTION') el.textContent = val;
+        else el.textContent = val;
+      });
+      // placeholders via data-ph
+      document.querySelectorAll('[data-ph-' + lang + ']').forEach(el => {
+        el.placeholder = el.getAttribute('data-ph-' + lang);
+      });
+    }
+
+    // FORM SUBMIT
     const form = document.querySelector('#contacto form');
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const btn = form.querySelector('.form-submit');
+        const btn = document.getElementById('submitBtn');
         const success = document.getElementById('form-success');
         const error = document.getElementById('form-error');
-        btn.textContent = 'Enviando...';
+        btn.textContent = lang === 'es' ? 'Enviando...' : 'Sending...';
         btn.disabled = true;
         try {
           const res = await fetch('https://formspree.io/f/xjgjwllb', {
@@ -656,24 +640,17 @@
             form.reset();
             success.style.display = 'block';
             error.style.display = 'none';
-            btn.textContent = 'Enviado ✓';
+            btn.textContent = lang === 'es' ? 'Enviado ✓' : 'Sent ✓';
           } else { throw new Error(); }
         } catch {
           error.style.display = 'block';
           success.style.display = 'none';
-          btn.textContent = 'Enviar Solicitud';
+          btn.textContent = lang === 'es' ? 'Enviar Solicitud' : 'Send Request';
           btn.disabled = false;
         }
       });
     }
   </script>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">DJ MANDO</div>
-    <div class="footer-quote">"La vida sin música no es vida."</div>
-    <div class="footer-copy">© 2026 DJ Mando. Todos los derechos reservados.</div>
-  </footer>
 
 </body>
 </html>
